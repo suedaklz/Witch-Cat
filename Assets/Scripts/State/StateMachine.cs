@@ -10,6 +10,7 @@ public class StateMachine
         {
             state?.OnExit();
             state = newState;
+            Debug.Log("State Bug Test---------- Monobehahiovur : " + state.characterManager + " , new state : " + newState);
             state.Initialise();
             state.OnEnter();
         }

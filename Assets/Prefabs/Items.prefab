@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2401679217486192700}
   - component: {fileID: 7950044698695374489}
+  - component: {fileID: 9184957203365561707}
   m_Layer: 0
   m_Name: Items
   m_TagString: Untagged
@@ -47,3 +48,17 @@ MonoBehaviour:
   items: []
   itemCount: 10
   prefab: {fileID: 8620707677388102276, guid: ededd277a0194394e93e57258613c7c1, type: 3}
+--- !u!114 &9184957203365561707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3542685560207506208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70368498594c7dd468380bc0fc200a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAmountText: {fileID: 0}
+  itemAmount: 0

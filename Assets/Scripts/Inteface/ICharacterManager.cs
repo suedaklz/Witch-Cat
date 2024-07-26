@@ -2,7 +2,7 @@
 
 public interface ICharacterManager
 {
-    Animator Animator { get; }
-    Rigidbody2D Rigidbody { get; }
+    Animator AnimatorInstance { get; }
+    Rigidbody2D RigidbodyInstance { get; }
     MonoBehaviour MonoBehaviourInstance { get; }
 }

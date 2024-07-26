@@ -23,13 +23,7 @@ public class GameManager : MonoBehaviour
             inventoryCanvas.transform.GetChild(0).gameObject.SetActive(_isInventoryOpen);
 
             inventoryUI.UpdateUI();
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            playerManager.HandleAttackState();
-        }
+        }      
     }
 
 }

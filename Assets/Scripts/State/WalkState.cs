@@ -7,30 +7,22 @@ public class WalkState : State
 
     public override void OnEnter()
     {
-        //PlayerManager.instance.playerMovement.animator.Play("PlayerWalk");
-        characterManager.Animator.SetBool("isWalk", true);
-
-        Debug.Log("playing walk anim");
+        characterManager.AnimatorInstance.SetBool("isWalk", true);
     }
 
     public override void OnUpdate()
     {
-        float velocityX = characterManager.Rigidbody.velocity.x;
-        float velocityY = characterManager.Rigidbody.velocity.y;
-
+        float velocityX = characterManager.RigidbodyInstance.velocity.x;
+        float velocityY = characterManager.RigidbodyInstance.velocity.y;
 
         if (Mathf.Abs(velocityX) < 0.1f || Mathf.Abs(velocityY) < 0.1f)
         {
             isComplete = true;
-            //Debug.Log("playing walk anim finish velo");
-
         }
     }
 
     public override void OnExit()
     {
-        // Exit run state logic
-        characterManager.Animator.SetBool("isWalk", false);
-
+        characterManager.AnimatorInstance.SetBool("isWalk", false);
     }
 }

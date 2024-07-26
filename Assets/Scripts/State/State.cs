@@ -7,27 +7,21 @@ public abstract class State
     protected float startTime;
     public float time => Time.time - startTime;
 
-    protected ICharacterManager characterManager;
+    public ICharacterManager characterManager;
 
     public State(ICharacterManager characterManager)
     {
         this.characterManager = characterManager;
     }
 
-    public virtual void OnEnter()
-    {
-    }
+    public virtual void OnEnter() { }
 
-    public virtual void OnUpdate()
-    {
+    public virtual void OnUpdate() { }
 
-    }
-
-    public virtual void OnExit()
-    {
+    public virtual void OnExit() 
+    { 
         isComplete = true;
     }
-
 
     public void Initialise()
     {

@@ -9,12 +9,10 @@ public class ItemWorld : MonoBehaviour
     public TextMeshPro itemAmountText;
     public int itemAmount;
 
-
     public void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
 
     public ItemType Type
     {
@@ -46,7 +44,6 @@ public class ItemWorld : MonoBehaviour
                 _spriteRenderer.sprite = GameManager.instance.gameAssets.hamSprite;
                 break;
             default: break;
-
         }
 
     }

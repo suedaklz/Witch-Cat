@@ -19,8 +19,7 @@ public class Inventory
         {
             if (itemList.Count >= maxIndexCount)
             {
-                UnityEngine.Debug.Log("Not Enough room");
-                return;
+                return; // Not enough room
             }
             itemList.Add(new InventoryItem(item));
         }
@@ -37,7 +36,6 @@ public class Inventory
             if (existingItem.itemQuantity <= 0)
             {
                 itemList.Remove(existingItem);
-                UnityEngine.Debug.Log("Item Removed");
             }
             PrintList();
             onInventoryChangedCallback?.Invoke();

@@ -7,27 +7,22 @@ public class DeadState : State
 
     public override void OnEnter()
     {
-        //PlayerManager.instance.playerMovement.animator.Play("PlayerDead");
         characterManager.MonoBehaviourInstance.StartCoroutine(Dead());
-
     }
 
     public IEnumerator Dead()
     {
-        characterManager.Animator.SetBool("isDead", true);
-        AnimatorStateInfo stateInfo = characterManager.Animator.GetCurrentAnimatorStateInfo(0);
+        Debug.Log("Animation Bug Fix ---- is Dead1 : " + characterManager.AnimatorInstance.GetBool("isDead"));
+        characterManager.AnimatorInstance.SetBool("isDead", true);
+        Debug.Log("Animation Bug Fix ---- is Dead2 : " + characterManager.AnimatorInstance.GetBool("isDead"));
+
+        Debug.Log("playing dead Animation");
+        AnimatorStateInfo stateInfo = characterManager.AnimatorInstance.GetCurrentAnimatorStateInfo(0);
         yield return new WaitForSeconds(stateInfo.length);
-        characterManager.Animator.SetBool("isDead", false);
-
-
-    }
-    public override void OnUpdate()
-    {
+        characterManager.AnimatorInstance.SetBool("isDead", false);
     }
 
-    public override void OnExit()
-    {
-        // Exit run state logic
-    }
+    public override void OnUpdate() { }
 
+    public override void OnExit() { }
 }

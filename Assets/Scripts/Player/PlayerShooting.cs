@@ -2,32 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooting : MonoBehaviour
+public class PlayerShooting : MonoBehaviour
 {
     public GameObject bullet;
     public Transform bulletPos;
 
-    public EnemyManager _enemyManager;
-    private float timer;
+    private PlayerManager _playerManager;
 
+    private void Start()
+    {
+        _playerManager = PlayerManager.instance;
+    }
 
     private void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer > 5)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            timer = 0;
-            if (_enemyManager.stateMachine.state == _enemyManager.walkState)
-                StartCoroutine(HandleAttackAndShoot());
+            StartCoroutine(HandleAttackAndShoot());
         }
     }
 
     private IEnumerator HandleAttackAndShoot()
     {
-        _enemyManager.HandleAttackState();
+        _playerManager.HandleAttackState();
 
-        while (_enemyManager.stateMachine.state == _enemyManager.attackState)
+        while (_playerManager.stateMachine.state == _playerManager.attackState)
         {
             yield return null;
         }

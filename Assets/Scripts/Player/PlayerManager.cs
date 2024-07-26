@@ -13,8 +13,8 @@ public class PlayerManager : MonoBehaviour, ICharacterManager
 
     ICharacterManager playerManager = PlayerManager.instance;
 
-    public Animator Animator => playerMovement.animator;
-    public Rigidbody2D Rigidbody => playerMovement.rigidBody;
+    public Animator AnimatorInstance => playerMovement.animator;
+    public Rigidbody2D RigidbodyInstance => playerMovement.rigidBody;
     public MonoBehaviour MonoBehaviourInstance => this;
 
     void Awake()
@@ -38,32 +38,37 @@ public class PlayerManager : MonoBehaviour, ICharacterManager
         stateMachine.state?.OnUpdate();
     }
 
-    public void SelectState(Vector2 moveDirection, float xInput)
+    public void SelectState(Vector2 moveDirection)
     {
         if (moveDirection.magnitude > 0)
         {
-            if(playerMovement.animator.GetBool("isAttack") == false)
+            if(playerMovement.animator.GetBool("isAttack") == false &&
+                playerMovement.animator.GetBool("isDead") == false)
                 stateMachine.Set(walkState);
         }
         else
         {
-            if (playerMovement.animator.GetBool("isAttack") == false)
+            Debug.Log("Animation Bug Fix inþþ ---- isDead:" + playerMovement.animator.GetBool("isDead"));
+            if (playerMovement.animator.GetBool("isAttack") == false && 
+                playerMovement.animator.GetBool("isDead") == false)
                 stateMachine.Set(idleState);
         }
     }
 
     public void HandleHurtState()
     {
-        stateMachine.Set(hurtState);
+        if (playerMovement.animator.GetBool("isDead") == false)
+            stateMachine.Set(hurtState);
     }
 
     public void HandleDeadState()
     {
-        stateMachine.Set(deadState);
+            stateMachine.Set(deadState);
     }
 
     public void HandleAttackState()
     {
-        stateMachine.Set(attackState);
+        if (playerMovement.animator.GetBool("isDead") == false)
+            stateMachine.Set(attackState);
     }
 }
