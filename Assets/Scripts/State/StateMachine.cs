@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class StateMachine
 {
-    public State state;
+    public IState state;
 
-    public void Set(State newState, bool forceReset = false)
+    public void Set(IState newState, bool forceReset = false)
     {
         if (state != newState || forceReset)
         {

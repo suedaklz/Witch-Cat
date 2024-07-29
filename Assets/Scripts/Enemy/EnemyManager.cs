@@ -53,7 +53,7 @@ public class EnemyManager : MonoBehaviour, ICharacterManager
                 stateMachine.Set(walkState);
             }
         }
-        else
+        else 
         {
            HandleIdleState();
         }

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DeadState : State
+public class DeadState : IState
 {
     public DeadState(ICharacterManager characterManager) : base(characterManager) { }
 
@@ -12,9 +12,7 @@ public class DeadState : State
 
     public IEnumerator Dead()
     {
-        Debug.Log("Animation Bug Fix ---- is Dead1 : " + characterManager.AnimatorInstance.GetBool("isDead"));
         characterManager.AnimatorInstance.SetBool("isDead", true);
-        Debug.Log("Animation Bug Fix ---- is Dead2 : " + characterManager.AnimatorInstance.GetBool("isDead"));
 
         Debug.Log("playing dead Animation");
         AnimatorStateInfo stateInfo = characterManager.AnimatorInstance.GetCurrentAnimatorStateInfo(0);

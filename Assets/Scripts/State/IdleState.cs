@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IdleState : State
+public class IdleState : IState
 {
 
     public IdleState(ICharacterManager characterManager) : base(characterManager) { }

@@ -1,7 +1,7 @@
 using System.Data;
 using UnityEngine;
 
-public class WalkState : State
+public class WalkState : IState
 {
     public WalkState(ICharacterManager characterManager) : base(characterManager) { }
 

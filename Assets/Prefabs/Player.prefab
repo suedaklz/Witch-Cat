@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 3930907951511845131}
-  maxHealth: 4
+  maxHealth: 10
   health: 0
 --- !u!114 &3930907951511845131
 MonoBehaviour:
@@ -290,3 +290,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 284309535646536879, guid: 127abbfd2baafff488378dfff3503158, type: 3}
   bulletPos: {fileID: 7928230772523566919}
+  playerMovement: {fileID: 6016021358610531614}

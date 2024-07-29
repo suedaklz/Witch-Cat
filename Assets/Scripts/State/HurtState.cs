@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class HurtState : State
+public class HurtState : IState
 {
     public HurtState(ICharacterManager characterManager) : base(characterManager) { }
 
@@ -16,6 +16,7 @@ public class HurtState : State
         AnimatorStateInfo stateInfo = characterManager.AnimatorInstance.GetCurrentAnimatorStateInfo(0);
         yield return new WaitForSeconds(stateInfo.length);
         characterManager.AnimatorInstance.SetBool("isHurt", false);
+        isComplete = true;
     }
 
     public override void OnUpdate() { }

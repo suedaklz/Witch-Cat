@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class State
+public abstract class IState
 {
     public bool isComplete { get; protected set;}
 
@@ -9,7 +9,7 @@ public abstract class State
 
     public ICharacterManager characterManager;
 
-    public State(ICharacterManager characterManager)
+    public IState(ICharacterManager characterManager)
     {
         this.characterManager = characterManager;
     }

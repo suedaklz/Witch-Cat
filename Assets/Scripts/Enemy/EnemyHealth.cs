@@ -22,23 +22,12 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            StartCoroutine(HandleDead());
+            _enemyManager.HandleDeadState();
+            Destroy(gameObject, _animator.GetCurrentAnimatorStateInfo(0).length);
         }
         else
         {
             _enemyManager.HandleHurtState();
         }
-    }
-
-    private IEnumerator HandleDead()
-    {
-        _enemyManager.HandleDeadState();
-
-        while (_enemyManager.stateMachine.state == _enemyManager.deadState)
-        {
-            yield return null;
-        }
-
-        Destroy(gameObject, _animator.GetCurrentAnimatorStateInfo(0).length);
     }
 }

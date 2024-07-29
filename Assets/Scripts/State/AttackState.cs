@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class AttackState : State
+public class AttackState : IState
 {
     public AttackState(ICharacterManager characterManager) : base(characterManager) { }
 

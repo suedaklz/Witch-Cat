@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             _playerManager.SelectState(moveDirection);
     }
 
-    void CheckDirection(float xInput)
+    public void CheckDirection(float xInput)
     {
         if (xInput < 0)
         {
